@@ -1,6 +1,6 @@
 # 分布式存储与计算NLP小组资料分享
 收集机器学习和自然语言处理相关的资料，欢迎大家补充！
 
-# 2018 NAACL best paper
+# 2019 NAACL best paper
 
 1. [BERT论文](./自然语言处理/论文/BERT.pdf)
