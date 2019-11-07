@@ -5,8 +5,11 @@ result_Path = "./directory.md"
 result_file = open(result_Path, 'a', encoding="utf-8")
 current_path = "./"
 
+# default setting
+maxLevel = 4
+
 # default ignored file
-ignore_files = ["README.md",".git","genDirectory.py"]
+ignore_files = ["README.md",".git","genDirectory.py","directory.md"]
 
 # interWalker traverses the folder generation directory
 def interWalker(path, lv):
@@ -21,6 +24,8 @@ def interWalker(path, lv):
         result_file.write(pf)
         result_file.write("[{}]({})\n".format(f, url))
 
+        if lv >= maxLevel:
+            continue
         if os.path.isdir(path + f):
             interWalker(path + f + "/", lv+1)
 
