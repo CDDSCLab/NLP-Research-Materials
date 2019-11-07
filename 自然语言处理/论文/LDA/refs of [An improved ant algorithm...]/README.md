@@ -1,0 +1,5 @@
+- [x] Document Clustering based on Topic Maps
+- [x] A three-phase approach to document clustering based on topic significance degree (*已复现*)
+- [ ] ~~Clustering scientific documents with topic modelling~~
+- [ ] A document clustering algorithm based on semi-constrained hierarchical latent Dirichlet allocation. *Knowledge Science,Engineering and Management*, p49-60
+- [x] A Chinese Word Clustering Method Using Latent Dirichlet Allocation and K-means

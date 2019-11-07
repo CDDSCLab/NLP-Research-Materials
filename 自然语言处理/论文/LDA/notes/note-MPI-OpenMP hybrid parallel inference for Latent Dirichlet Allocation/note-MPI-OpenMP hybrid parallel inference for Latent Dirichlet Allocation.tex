@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{indentfirst}
+\usepackage{ctex}
+\usepackage{geometry}
+\usepackage{enumerate}
+\geometry{left=3.17cm,right=3.17cm,top=2.54cm,bottom=2.54cm} % 页边距
+
+\begin{document}
+
+\title{MPI/OpenMP hybrid parallel inference for Latent Dirichlet Allocation}
+\date{}
+\maketitle
+
+\begin{abstract}
+用于LDA参数估计的变分贝叶斯推断和collaopsed Gibbs sampling在处理大规模数据时计算开销非常大。本文利用并行计算技术提高Gibbs sampling推断的效率。我们使用一种近年来被广泛使用的共享内存集群(SMP集群)。在LDA并行推理的前期工作中，MPI和OpenMP都以被使用过。另一方面，对于SMP集群而言，更适合采用在SMP节点和循环指令之间通过消息传递来实现通信的混合并行化，以此在每个SMP节点之间实现并行化。本文设计了一种用于LDA的MPI/OpenMP混合并行推断方法。
+\end{abstract}
+
+\section{Introduction}
+针对大量文档集的分析中，主题模型方法是一种极为成功的学习算法。主题模型基于的思想是，每篇文档都是从单词分布的“混合”中生成的，每一个这样的“混合”称为“主题”。
+...
+
+\section{Related Work}
+\subsection{LDA}
+
+\subsection{Fast inference methods for LDA}
+collapsed Gibbs sampling的计算复杂性来自于文档集中的主题数量和词汇表大小的乘积。针对此问题的改进工作有很多：
+\begin{itemize}
+	\item ...
+	\item ...
+\end{itemize}
+
+\end{document}
+ 

@@ -1,0 +1,11 @@
+# LDA
+- [ ] Latent Dirichlet Allocation
+- [ ] CitationLDA++: An Extension of LDA for Discovering Topics in Document Network
+- [x] A Hybrid Document Feature Extraction Method Using Latent Dirichlet Allocation and Word2Vec (*已复现*)
+- [x] Clustering with Probabilistic Topic Models on Arabic Texts: A Comparative Study of LDA and K-Means
+- [x] LDA Meets Word2Vec: A Novel Model for Academic Abstract Clustering
+- [x] An improved ant algorithm with LDA-based representation for text document clustering
+- [x] Learning to Classify Short and Sparse Text & Web with Hidden Topics from Large-scale Data Collections
+- [x] Streaming-LDA: A Copula-based Approach to Modeling Topic Dependencies in Document Streams
+- [x] Fast Collapsed Gibbs Sampling For Latent Dirichlet Allocation
+- [x] MPI/OpenMP hybrid parallel inference for Latent Dirichlet Allocation

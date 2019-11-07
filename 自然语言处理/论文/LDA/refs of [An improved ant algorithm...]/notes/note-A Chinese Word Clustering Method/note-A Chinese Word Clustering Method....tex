@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage{indentfirst}
+\usepackage{ctex}
+\usepackage{geometry}
+\usepackage{enumerate}
+\geometry{left=3.17cm,right=3.17cm,top=2.54cm,bottom=2.54cm} % 页边距
+
+\begin{document}
+
+\title{A Chinese Word Clustering Method Using Latent Dirichlet Allocation and K-means}
+\date{}
+\maketitle
+
+\section{Introduction}
+本文提出了一种基于LDA和K-means的中文单词聚类方法。K-means作为一种无监督聚类算法，由于初始聚类中心是随机选择的，所以得到的聚类结果不唯一。为了解决词问题，我们通过LDA算法从每个句子中的名词中抽取主题，然后选择每个主题下概率最高的名词作为K-means的初始聚类中心，最后使用K-means对文本中的所有单词进行聚类。
+
+
+\end{document}
+ 
