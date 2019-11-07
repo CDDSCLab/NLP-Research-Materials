@@ -2,7 +2,7 @@
 
 import os
 result_Path = "./directory.md"
-result_file = open(result_Path,'a')
+result_file = open(result_Path, 'a', encoding="utf-8")
 current_path = "./"
 
 # default ignored file
