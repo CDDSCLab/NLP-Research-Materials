@@ -10,6 +10,7 @@ maxLevel = 4
 
 # default ignored file
 ignore_files = ["README.md",".git","genDirectory.py","directory.md"]
+ignore_ftypes = [".py",".html",".png",".jpg",".rar",".zip"]
 
 # interWalker traverses the folder generation directory
 def interWalker(path, lv):
@@ -17,7 +18,11 @@ def interWalker(path, lv):
     pf = genPrefix(lv)
     for f in files:
         if f in ignore_files:
-                continue
+            continue
+
+        _, ftype = os.path.splitext(f)
+        if ftype in ignore_ftypes:
+            continue
 
         url = path+f
         url = handleFormat(url)
