@@ -1,8 +1,11 @@
 #conding=utf8
 
 import os
-result_Path = "./directory.md"
-result_file = open(result_Path, 'a', encoding="utf-8")
+result_Path = "./README.md"
+result_file = open(result_Path, 'w', encoding="utf-8")
+result_file.write("# 分布式存储与计算NLP小组资料分享\n\
+收集机器学习和自然语言处理相关的资料，欢迎大家补充！\n\n\
+### 目录\n")
 current_path = "./"
 
 # default setting
