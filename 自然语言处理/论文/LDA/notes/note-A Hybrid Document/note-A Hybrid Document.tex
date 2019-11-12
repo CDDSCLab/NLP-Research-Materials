@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{indentfirst}
+\usepackage{ctex}
+\usepackage{geometry}
+\usepackage{enumerate}
+\geometry{left=3.17cm,right=3.17cm,top=2.54cm,bottom=2.54cm} % 页边距
+
+\begin{document}
+
+\title{A Hybrid Document Feature Extraction Method Using Latent Dirichlet Allocation and Word2Vec}
+\date{}
+\maketitle
+
+\section*{NEW FRAMEWORK}
+LDA可以用来描述文档之间的全局关系，Word2Vec可以以非常局部的方式来预测单词。所以我们将两者合并，使用一种更加全面的向量来表示文档，同时，使用密度向量的新型表示方法增强了用于NLP任务的区分和预测能力。\par
+如Fig. 3(b)所示，新方法将单词、文档和主题投影到一个高维语义空间中。一个\textbf{文档向量}被认为是一个单向量(single vector)，是文档中所有单词的质心(centroid)——正如Word2Vec在投影层做的那样。另外，由于每篇文档长度不一，因此文档向量需要除以该文档中的单词数，以保证度量标准的统一性。我们以一种相似的方法构造\textbf{主题向量}，但这会有一些复杂。我们使用每个主题下概率最高的$h$个单词来表示该主题，然后重新调整这些单词的概率，将其作为单词的权重。因此不同的单词对主题的贡献程度也不同。我们度量每篇文档和各个主题之间的欧氏距离，使得文档可以用距离分布来表示。\par
+详细来讲，给定一个文档集合$D=\left\{d_1,d_2,\dots,d_n \right\}$，其词汇表构建自$N$个单词集合$\left\{w_1,w_2,\dots,w_N \right\}$. 通过训练$D$，LDA输出潜在主题$\left\{t_1,t_2,\dots,t_T \right\}$(即GibbsLDA++输出的theta文件，doc-topic分布)和每个主题$t_i$中的单词概率(即GibbsLDA++输出的phi文件，topic-word分布)，其中，主题$t_i$下的第$j$个单词表示为$\theta_{i_j}$. Word2Vec训练$D$，并将词汇表中的每个单词表示为一个固定长度的向量$\left\{v(w_1),v(w_2),\dots,v(w_N) \right\}$. 为了生成主题向量，从主题$t_i$中选择$h$个概率最高的单词。同时，使用Eq.(\ref{eq1})将主题$t_i$中的单词概率重新调整为权重。在Eq.(\ref{eq2})中，通过对每个单词的向量与其权重的乘积求和，即可求得\textbf{主题向量}$v(t_i)$.
+
+\begin{equation}
+	\omega_i=\frac{\theta_i}{\sum_{n=1}^{h}\theta_n} \label{eq1}
+\end{equation}
+
+\begin{equation}
+	v(t_i)=\sum_{n=1}^{h}\omega_{i_n}v(w_{i_n}) \label{eq2}
+\end{equation}
+
+\begin{itemize}
+	\item Eq.(\ref{eq1})批注：
+	\begin{itemize}
+		\item $\theta_i$是主题$t_i$对应的单词向量，即phi文件中行号为$t_i$对应的那一行;
+		\item $\sum_{n=1}^{h}\theta_n$应该是写错了，应为$\sum_{n=1}^{h}\theta_{i_n}$，即对主题$t_i$下概率最高的$h$个单词的概率求和.
+	\end{itemize}
+	\item Eq.(\ref{eq2})批注：
+	\begin{itemize}
+		\item 求和过程中的$\omega_{i_1},\omega_{i_2},\dots,\omega_{i_h}$，是主题$t_i$下概率最高的$h$个单词的权重值；$w_{i_1},w_{i_2},\dots,w_{i_h}$是具体的单词，将其作为索引可以从word2vec的训练结果中取出对应的词向量$v(w_{i_n})$.
+	\end{itemize}
+	\item Eq.(\ref{eq1})和Eq.(\ref{eq2})中的向量维数都是$N$，$N$等于词汇表的大小。
+\end{itemize}
+
+接下来，计算通过Eq.(\ref{eq3})计算\textbf{文档向量}$v(d_i)$，其中$c$为文档$d_i$中的单词数。
+
+\begin{equation}
+	v(d_i)=\frac{\sum_{n=1}^{c}v(w_{i_n})}{c} \label{eq3}
+\end{equation}
+
+因此，每篇文档可被表示为语义空间中该文档到各个主题的距离分布，该距离由Eq.(\ref{eq4})计算。
+
+\begin{equation}
+	distance(v(d_i),v(t_j))=|v(d_i)-v(t_j)| \label{eq4}
+\end{equation}
+where $i=1,2,\dots,n;j=1,2,\dots,T$
+
+\end{document}
+ 
