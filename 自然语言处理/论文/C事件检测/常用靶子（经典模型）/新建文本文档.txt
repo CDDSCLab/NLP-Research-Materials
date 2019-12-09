@@ -1,0 +1,2 @@
+DMCNN 
+Joint ee via RNN
