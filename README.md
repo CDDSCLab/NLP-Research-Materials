@@ -2,6 +2,7 @@
 收集机器学习和自然语言处理相关的资料，欢迎大家补充！
 
 ### 目录
+- [KDD_2020_Call_for_Research_Papers.pdf](./KDD_2020_Call_for_Research_Papers.pdf)
 - [ldc-not-for-profit-membership.pdf](./ldc-not-for-profit-membership.pdf)
 - [push.bat](./push.bat)
 - [中国计算机学会推荐国际学术会议和期刊目录-2019.pdf](./中国计算机学会推荐国际学术会议和期刊目录-2019.pdf)
