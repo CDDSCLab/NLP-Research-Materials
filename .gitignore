@@ -1,0 +1,3 @@
+# ignore docx cache file
+~$*.docx
+~$*.doc
